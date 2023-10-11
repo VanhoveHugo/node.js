@@ -7,6 +7,11 @@ const mongoose  = require('mongoose');
 const routes    = require('./controllers/router')
 let app         = express();
 
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+
 // creation de la session
 app.use(session({
     secret: process.env.SESSION_SECRET,
